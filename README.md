@@ -38,6 +38,13 @@ ssh-copy-id <username>@<private_ip-address of node>
 * Create two EC2 instances
 ![Preview](Images/ansible1.png)
 
+* To update the packages and install the java
+* For updation we need to execute the below commands
+```
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+```
+
 * and login to both the machines and do the configurations
 ```
 vi /etc/ssh/sshd_config
@@ -52,11 +59,12 @@ sudo visudo
 
 ```
 
-
+* To install the ansible only on ansible control node
 * Ansible installation steps
 ```
 sudo apt update
 sudo apt install software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible
+sudo apt install ansible -y
+ansible --version
 ```
