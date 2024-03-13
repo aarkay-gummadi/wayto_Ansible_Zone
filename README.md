@@ -1,4 +1,4 @@
-Setup the Ansible Control Node and Node 1
+Setup the Ansible Control Node and Node
 -------------------------------------------
 
 ### We have two ways to install the ansible
@@ -35,3 +35,28 @@ sudo visudo
 ssh-copy-id <username>@<private_ip-address of node> 
 ```
 
+* Create two EC2 instances
+![Preview](Images/ansible1.png)
+
+* and login to both the machines and do the configurations
+```
+vi /etc/ssh/sshd_config
+# Change the __PasswordAuthentication__ should be no __yes__
+
+sudo service restart sshd
+sudo adduser <username>
+# It will ask password and give some password to it and reconfirm the password
+
+sudo visudo
+# Add the user to sudoers file 
+
+```
+
+
+* Ansible installation steps
+```
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+```
